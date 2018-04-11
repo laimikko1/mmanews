@@ -14,7 +14,9 @@ const getAll = async () => {
 
 const getHeadlines = async () => {
     const response = await axiosInstance.get(baseUrl);
-    return response.data.slice(0, 5);
+    let data = response.data.filter(object =>
+        !(!object.thumbnail))
+    return data.slice(0, 5);
 }
 
 export default {

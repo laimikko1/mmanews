@@ -2,7 +2,6 @@ import newsService from '../services/news'
 
 
 const newsReducer = (state = [], action) => {
-    console.log(`ACTION`, action)
 
     switch (action.type) {
         case 'INIT_NEWS':

@@ -1,10 +1,14 @@
 import React from 'react'
+import { Image } from 'semantic-ui-react'
 
 const HeadlineThumbnail = ({ headline, handleClick }) => {
-    console.log(`are we here`);
+    const style = {
+        listStyleType: 'none',
+        padding: '5px'
+    }
     return (
-        <li onClick={handleClick}>
-            <img src={headline.thumbnail} alt="a picture" />
+        <li style={style} onClick={handleClick}>
+            <Image onClick={handleClick} src={headline.thumbnail} size="tiny" circular />
         </li>
 
     )

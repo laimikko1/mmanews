@@ -13,13 +13,17 @@ import Headlines from './components/Headlines'
 
 class App extends React.Component {
   componentWillMount() {
-    this.props.initializeHeadlines()
     this.props.initializeNews()
   }
   render() {
 
+    const style = {
+      paddingRight: "100px",
+      paddingLeft: "100px"
+    }
     return (
-      <Container>
+      <Container style={style}>
+        <p>moi</p>
         <Headlines />
         {/* <Menu>
           <Menu.Item>
@@ -41,5 +45,5 @@ class App extends React.Component {
 
 export default connect(
   null,
-  {initializeHeadlines, initializeNews}
+  { initializeNews }
 )(App);

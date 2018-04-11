@@ -1,7 +1,6 @@
 import newsService from '../services/news'
 
 const headlineReducer = (state = [], action) => {
-    console.log('ACTION', action)
     switch (action.type) {
         case 'INIT_HEADLINES':
             return action.data
@@ -14,6 +13,7 @@ const headlineReducer = (state = [], action) => {
 export const initializeHeadlines = () => {
     return async (dispatch) => {
         const headlines = await newsService.getHeadlines()
+        console.log(headlines);
         dispatch({
             type: 'INIT_HEADLINES',
             data: headlines
