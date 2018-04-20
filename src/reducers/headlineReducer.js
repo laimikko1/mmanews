@@ -13,7 +13,6 @@ const headlineReducer = (state = [], action) => {
 export const initializeHeadlines = () => {
     return async (dispatch) => {
         const headlines = await newsService.getHeadlines()
-        console.log(headlines);
         dispatch({
             type: 'INIT_HEADLINES',
             data: headlines

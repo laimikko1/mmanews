@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 import HeadlineThumbnail from '../components/HeadlineThumbnail'
+import HeadlineNews from '../components/HeadlineNews'
 import { initializeHeadlines } from '../reducers/headlineReducer'
 import { Image } from 'semantic-ui-react'
 
@@ -13,23 +14,18 @@ class Headlines extends React.Component {
         }
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
         await this.props.initializeHeadlines()
         this.setState({ modal: this.props.headlines[0] })
-        console.log(this.state);
     }
-
 
     renderModal = (headline) => {
         return () => {
             this.setState({ modal: headline })
-
         }
     }
 
-
     render() {
-
         const uutiset = {
             background: "linear-gradient(-10deg, black, grey)"
         }
@@ -66,7 +62,7 @@ class Headlines extends React.Component {
                 <Grid columns={3}>
                     <Grid.Column width={3}>
                         <ul>
-                            {this.props.headlines.map(headline =>
+                            {this.props.topNews.map(headline =>
                                 <HeadlineThumbnail
                                     key={headline.id}
                                     headline={headline}
@@ -76,7 +72,7 @@ class Headlines extends React.Component {
                         </ul>
                     </Grid.Column>
                     <div style={topKek}>
-                        <Grid.Column width={6}>
+                        <Grid.Column width={8}>
                             <Grid.Row>
                                 <img style={image} src={this.state.modal.thumbnail} size="medium" circular />
                             </Grid.Row>
@@ -88,21 +84,28 @@ class Headlines extends React.Component {
                             </Grid.Row>
                         </Grid.Column>
                     </div>
-                    <Grid.Column style={topKek} width={3}>
-                            <Grid.Row>
-                            <img style={image} src={this.state.modal.thumbnail} size="medium" circular />
+                    <Grid.Column style={topKek} width={6}>
+                        <Grid.Row>
+                            <HeadlineNews headlines={this.props.headlines.slice(5)} />
 
-                            </Grid.Row>
-                        </Grid.Column>
+                        </Grid.Row>
+                    </Grid.Column>
                 </Grid>
             </div>
         )
     }
 }
 
+const getTopHeadlines = (headlines) => {
+    let h = headlines.filter(headl =>
+        (headl.thumbnail))
+    return h.slice(0, 5)
+}
+
 const mapStateToProps = (state) => {
     return {
-        headlines: state.headlines
+        headlines: state.headlines,
+        topNews: getTopHeadlines(state.headlines)
     }
 }
 
