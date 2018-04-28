@@ -8,8 +8,10 @@ import { Container, Table, Button, Menu } from 'semantic-ui-react'
 import newsService from './services/news'
 import { initializeNews } from './reducers/newsReducer'
 import { initializeHeadlines } from './reducers/headlineReducer'
+import { initializeEvents } from './reducers/eventReducer'
 import headlineThumbnail from './components/HeadlineThumbnail'
 import Headlines from './components/Headlines'
+import Events from './components/Events'
 
 class App extends React.Component {
   componentWillMount() {
@@ -23,8 +25,8 @@ class App extends React.Component {
     }
     return (
       <Container style={style}>
-        <p>moi</p>
         <Headlines />
+        <Events />
         {/* <Menu>
           <Menu.Item>
             <a href="'#'">eka</a>
