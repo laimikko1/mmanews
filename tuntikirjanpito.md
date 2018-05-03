@@ -6,3 +6,4 @@
 | 6.4 | Eka näkymä tehty, eli pääuutiset| 4h|
 | 20.4| Tehty näkymä loppuun, aloitettu eventtien teko | 4h|
 | 28.4| Etusivun näkymän events-komponenttia luotu | 2h
+| 3.5 | Tehty etusivun näkymää eventeistä | 4h
