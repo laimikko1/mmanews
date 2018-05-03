@@ -1,0 +1,21 @@
+.eventList li {
+    margin: 20px;
+    background: linear-gradient(-10deg, grey, white);
+    display: inline-block;
+    float: none;
+    padding: 10px;
+}
+
+.eventList {
+    margin-top: 20px;
+    background: linear-gradient(-10deg, black, grey);
+    padding-left: 10%;
+}
+
+.eventListitem {
+    margin: 20px;
+    background: linear-gradient(-10deg, grey, white);
+    display: inline-block;
+    float: none;
+    padding: 10px;
+}
