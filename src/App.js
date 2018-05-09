@@ -12,12 +12,14 @@ import { initializeEvents } from './reducers/eventReducer'
 import headlineThumbnail from './components/HeadlineThumbnail'
 import Headlines from './components/Headlines'
 import Events from './components/Events'
+import scraper from './utils/scraper'
 
 class App extends React.Component {
   componentWillMount() {
     this.props.initializeNews()
   }
   render() {
+    scraper.getMatchups(649465)
 
     const style = {
       paddingRight: "100px",

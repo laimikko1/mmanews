@@ -23,7 +23,7 @@ class Headlines extends React.Component {
         return () => {
             this.setState({ modal: headline })
         }
-    }
+    } 
 
     render() {
         const uutiset = {
