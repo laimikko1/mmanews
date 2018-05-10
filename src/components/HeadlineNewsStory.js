@@ -4,7 +4,7 @@ import { List } from 'semantic-ui-react'
 
 const baseUrl = 'http://uk.ufc.com/news'
 
-const HeadLineNews = ({ headlines }) => {
+const HeadLineNewsStory = ({ headlines }) => {
     const style = {
         background: "linear-gradient(to bottom right, grey, white)",
         padding: "20px",
@@ -26,4 +26,4 @@ const HeadLineNews = ({ headlines }) => {
     )
 }
 
-export default HeadLineNews
+export default HeadLineNewsStory

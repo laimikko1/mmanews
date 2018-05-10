@@ -10,7 +10,7 @@ const getMatchups = async (eventId) => {
     const $ = cheerio.load(response.data)
 
 
-    $('.flipcard-front').each((i, elem) => {
+    await $('.flipcard-front').each((i, elem) => {
         let fighterOne = $(elem).find('.fighter-name-red').text()
         let fighterTwo = $(elem).find('.fighter-name-blue').text()
 
@@ -27,14 +27,14 @@ const getMatchups = async (eventId) => {
             fighterOneImage: fighterOneImage,
             fighterTwoImage: fighterTwoImage,
             fighterOneRecord: fighterOneRecord,
-            fighterTwoRecord: fighterTwoRecord, 
-            weightClass: weightClass  
+            fighterTwoRecord: fighterTwoRecord,
+            weightClass: weightClass
         }
 
         eventFights.push(eventFight)
 
     })
-    console.log(eventFights)
+    return eventFights
 }
 
 export default {

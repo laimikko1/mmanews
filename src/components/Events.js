@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { initializeEvents } from '../reducers/eventReducer'
 import { List } from 'semantic-ui-react'
 import '../styles.css'
-import { Grid, Image } from 'semantic-ui-react'
+import { Dimmer, Loader, Segment, Grid, Image } from 'semantic-ui-react'
+import scraper from '../utils/scraper'
+
 
 class Events extends React.Component {
     constructor(props) {
@@ -17,7 +19,11 @@ class Events extends React.Component {
 
     async componentDidMount() {
         await this.props.initializeEvents()
-        this.setEvents(this.getNewEvents(this.props.events))
+        const newEvents = await (this.getNewEvents(this.props.events))
+        const newEventsWithFights = await this.getEventFights(newEvents)
+        await this.setEvents(newEventsWithFights)
+        await this.renderModal(this.state.upcomingEvents[0])
+        console.log(this.state.modal)
     }
 
     handleClick = (event) => {
@@ -31,6 +37,17 @@ class Events extends React.Component {
         this.setState({ modal: event })
     }
 
+
+    getEventFights = async (events) => {
+        let matches = events.map(e =>
+            scraper.getMatchups(e.id)
+        )
+        const res = await Promise.all(matches)
+        events.forEach((e, i) => {
+            e.matches = res[i]
+        })
+        return events
+    }
 
     getNewEvents = (events) => {
         var today = new Date()
@@ -117,6 +134,8 @@ class Events extends React.Component {
             fontSize: "20px"
         }
 
+        const matchesAreSet = !(this.state.modal.matches === undefined)
+
         return (
             <div>
                 <div className="eventList">
@@ -127,23 +146,33 @@ class Events extends React.Component {
                 </div>
                 <div style={{ position: "relative" }}>
                     <Grid columns={2}>
-                        <Grid.Column width={8}>
+                        <Grid.Column width={6}>
                             <Image src={this.state.modal.feature_image} size='medium' />
                             <div style={imageTextStyle}>
-                                <p style={{textAlign: "center"}}>{this.state.modal.title_tag_line}</p>
+                                <p style={{ textAlign: "center" }}>{this.state.modal.title_tag_line}</p>
                             </div>
                         </Grid.Column>
-                        <Grid.Column width={5}>
-                            <h2>HAHA</h2>
+                        <Grid.Column width={10}>
+                            {matchesAreSet ? (
+                                this.state.modal.matches.map(e =>
+                                    <div>
+                                        <Image.Group size="tiny" style={{ background: "blue" }}>
+                                            <Image src={e.fighterOneImage} size='tiny' />
+                                            <Image src={e.fighterTwoImage} size='tiny' />
+                                        </Image.Group>
+                                    </div>
+                                )
+                            ) : (
+                                    <Dimmer active inverted style={{ marginTop: "20px" }}>
+                                        <Loader>Loading</Loader>
+                                    </Dimmer>
+                                )}
                         </Grid.Column>
-
                     </Grid>
-
                 </div>
-            </div>
+            </div >
         )
     }
-
 }
 
 

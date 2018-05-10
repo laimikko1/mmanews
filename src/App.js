@@ -19,7 +19,6 @@ class App extends React.Component {
     this.props.initializeNews()
   }
   render() {
-    scraper.getMatchups(649465)
 
     const style = {
       paddingRight: "100px",

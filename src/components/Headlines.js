@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 import HeadlineThumbnail from '../components/HeadlineThumbnail'
-import HeadlineNews from '../components/HeadlineNews'
+import HeadlineNewsStory from '../components/HeadlineNewsStory'
 import { initializeHeadlines } from '../reducers/headlineReducer'
 import { Image } from 'semantic-ui-react'
 
@@ -86,7 +86,7 @@ class Headlines extends React.Component {
                     </div>
                     <Grid.Column style={topKek} width={6}>
                         <Grid.Row>
-                            <HeadlineNews headlines={this.props.headlines.slice(5)} />
+                            <HeadlineNewsStory headlines={this.props.headlines.slice(5)} />
 
                         </Grid.Row>
                     </Grid.Column>
