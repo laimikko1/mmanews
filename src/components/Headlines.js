@@ -1,10 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Container, Image } from 'semantic-ui-react'
 import HeadlineThumbnail from '../components/HeadlineThumbnail'
 import HeadlineNewsStory from '../components/HeadlineNewsStory'
 import { initializeHeadlines } from '../reducers/headlineReducer'
-import { Image } from 'semantic-ui-react'
 
 class Headlines extends React.Component {
     constructor(props) {
@@ -23,7 +22,7 @@ class Headlines extends React.Component {
         return () => {
             this.setState({ modal: headline })
         }
-    } 
+    }
 
     render() {
         const uutiset = {
@@ -58,6 +57,7 @@ class Headlines extends React.Component {
         }
 
         return (
+            <Container style={{marginTop: "50px"}}>
             <div style={uutiset}>
                 <Grid columns={3}>
                     <Grid.Column width={3}>
@@ -92,6 +92,7 @@ class Headlines extends React.Component {
                     </Grid.Column>
                 </Grid>
             </div>
+            </Container>
         )
     }
 }

@@ -153,21 +153,21 @@ class Events extends React.Component {
                             </div>
                         </Grid.Column>
                         <Grid.Column width={10}>
-                            {matchesAreSet ? (
-                                this.state.modal.matches.map(e =>
-                                    <div>
-                                        <Image.Group size="tiny" style={{ background: "blue" }}>
-                                            <Image src={e.fighterOneImage} size='tiny' />
-                                            <Image src={e.fighterTwoImage} size='tiny' />
-                                        </Image.Group>
-                                    </div>
-                                )
-                            ) : (
-                                    <Dimmer active inverted style={{ marginTop: "20px" }}>
-                                        <Loader>Loading</Loader>
-                                    </Dimmer>
-                                )}
-                        </Grid.Column>
+                        {matchesAreSet ? (
+                            this.state.modal.matches.map(e =>
+                                <div>
+                                    <Image.Group size="tiny" style={{background: "blue"}}>
+                                        <Image src={e.fighterOneImage} size='tiny' />
+                                        <Image src={e.fighterTwoImage} size='tiny' />
+                                    </Image.Group>
+                                </div>
+                            )
+                        ) : (
+                                <Dimmer active inverted style={{ marginTop: "20px" }}>
+                                    <Loader>Loading</Loader>
+                                </Dimmer>
+                            )}
+                            </Grid.Column>
                     </Grid>
                 </div>
             </div >

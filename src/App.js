@@ -24,23 +24,38 @@ class App extends React.Component {
       paddingRight: "100px",
       paddingLeft: "100px"
     }
-    return (
-      <Container style={style}>
-        <Headlines />
-        <Events />
-        {/* <Menu>
-          <Menu.Item>
-            <a href="'#'">eka</a>
-          </Menu.Item>
-          <Menu.Item>
-            <a href="'#'">toka</a>
-          </Menu.Item>
-          <Menu.Item>
-            <a href="'#'">kolmas</a>
-          </Menu.Item>
-        </Menu > */}
 
-      </Container >
+    const menuStyle = {
+      paddingTop: "2%",
+      paddingRight: "40%",
+      paddingLeft: "35%",
+      background: "linear-gradient(-10deg, black, grey)",
+      paddingBottom: "2%"
+
+    }
+
+    const linkStyle = {
+      color: "black",
+      padding: "5%",
+      margin: "50px%",
+      background: "white",
+      borderRadius: "10px"
+    }
+    return (
+      <Container>
+      <Router>
+        <div>
+        <p style={{float:"left", marginTop: "20px", marginLeft: "10px", color: "red", fontWeight: "bold"}}>MMANEWS</p>
+          <div style={menuStyle}>
+            <Link style={linkStyle} to="/">Home</Link> &nbsp;
+            <Link style={linkStyle} to="/fighters">Fighters</Link> &nbsp;
+            <Link style={linkStyle} to="/events">Events</Link>
+          </div>
+          <Route exact path="/" render={() => <Headlines />} />
+          <Route path="/events" render={() => <Events />} />
+        </div>
+      </Router >
+  </Container>
 
     )
   }

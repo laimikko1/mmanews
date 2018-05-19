@@ -8,3 +8,4 @@
 | 28.4| Etusivun näkymän events-komponenttia luotu | 2h |
 | 3.5 | Tehty etusivun näkymää eventeistä | 4h |
 | 9.5 | Crawleri tehty, jolla saa ottelukortin matsit | 4h |
+| 19.5 | Router tehty ja alustava valikko, muuttunee vielä | 2h |
