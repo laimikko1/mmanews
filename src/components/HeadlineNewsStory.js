@@ -16,7 +16,7 @@ const HeadLineNewsStory = ({ headlines }) => {
     return (
         <List style={style}>
             {headlines.map(headl =>
-                <List.Item>
+                <List.Item key={headl.id}>
                     <List.Icon name="caret right" />
                     <List.Content style={{textDecoration: 'none', color: 'black'}} href={`${baseUrl}/${headl.url_name}`}>{headl.title}</List.Content>
                 </List.Item>

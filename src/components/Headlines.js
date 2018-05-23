@@ -4,6 +4,7 @@ import { Grid, Container, Image } from 'semantic-ui-react'
 import HeadlineThumbnail from '../components/HeadlineThumbnail'
 import HeadlineNewsStory from '../components/HeadlineNewsStory'
 import { initializeHeadlines } from '../reducers/headlineReducer'
+import FrontPageEvents from '../components/FrontPageEvents'
 
 class Headlines extends React.Component {
     constructor(props) {
@@ -57,41 +58,43 @@ class Headlines extends React.Component {
         }
 
         return (
-            <Container style={{marginTop: "50px"}}>
-            <div style={uutiset}>
-                <Grid columns={3}>
-                    <Grid.Column width={3}>
-                        <ul>
-                            {this.props.topNews.map(headline =>
-                                <HeadlineThumbnail
-                                    key={headline.id}
-                                    headline={headline}
-                                    handleClick={this.renderModal(headline)}
-                                />
-                            )}
-                        </ul>
-                    </Grid.Column>
-                    <div style={topKek}>
-                        <Grid.Column width={8}>
-                            <Grid.Row>
-                                <img style={image} src={this.state.modal.thumbnail} size="medium" circular />
-                            </Grid.Row>
-                            <Grid.Row>
-                                <div style={header}>
-                                    <p>{this.state.modal.title} <span style={span}>WATCH</span> </p>
+            <Container style={{ marginTop: "50px" }}>
+                <div style={uutiset}>
+                    <Grid columns={3}>
+                        <Grid.Column width={3}>
+                            <ul>
+                                {this.props.topNews.map(headline =>
+                                    <HeadlineThumbnail
+                                        key={headline.id}
+                                        headline={headline}
+                                        handleClick={this.renderModal(headline)}
+                                    />
+                                )}
+                            </ul>
+                        </Grid.Column>
+                        <div style={topKek}>
+                            <Grid.Column width={8}>
+                                <Grid.Row>
+                                    <img style={image} src={this.state.modal.thumbnail} size="medium" circular="true" />
+                                </Grid.Row>
+                                <Grid.Row>
+                                    <div style={header}>
+                                        <p>{this.state.modal.title} <span style={span}>WATCH</span> </p>
 
-                                </div>
+                                    </div>
+                                </Grid.Row>
+                            </Grid.Column>
+                        </div>
+                        <Grid.Column style={topKek} width={6}>
+                            <Grid.Row>
+                                <HeadlineNewsStory headlines={this.props.headlines.slice(5)} />
+
                             </Grid.Row>
                         </Grid.Column>
-                    </div>
-                    <Grid.Column style={topKek} width={6}>
-                        <Grid.Row>
-                            <HeadlineNewsStory headlines={this.props.headlines.slice(5)} />
+                    </Grid>
+                </div>
 
-                        </Grid.Row>
-                    </Grid.Column>
-                </Grid>
-            </div>
+                <FrontPageEvents />
             </Container>
         )
     }

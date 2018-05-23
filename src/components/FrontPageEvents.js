@@ -5,9 +5,10 @@ import { List } from 'semantic-ui-react'
 import '../styles.css'
 import { Dimmer, Loader, Segment, Grid, Image } from 'semantic-ui-react'
 import scraper from '../utils/scraper'
+import FrontPageEventMatchups from '../components/FrontPageEventMatchups'
 
 
-class Events extends React.Component {
+class FrontPageEvents extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -128,46 +129,40 @@ class Events extends React.Component {
         const imageTextStyle = {
             background: "black",
             color: "white",
-            position: "absolute",
             top: "80%",
             width: "300px",
-            fontSize: "20px"
+            fontSize: "20px",
         }
 
         const matchesAreSet = !(this.state.modal.matches === undefined)
+        console.log(this.state.modal.matches)
 
         return (
             <div>
                 <div className="eventList">
                     <List verticalAlign="middle">
                         {this.state.upcomingEvents.map(e =>
-                            <List.Item style={this.renderStyle(e.id)} onClick={this.handleClick(e)}>{e.base_title}</List.Item>)}
+                            <List.Item key={e.id} style={this.renderStyle(e.id)} onClick={this.handleClick(e)}>{e.base_title}</List.Item>)}
                     </List>
                 </div>
-                <div style={{ position: "relative" }}>
+                <div>
                     <Grid columns={2}>
                         <Grid.Column width={6}>
                             <Image src={this.state.modal.feature_image} size='medium' />
                             <div style={imageTextStyle}>
-                                <p style={{ textAlign: "center" }}>{this.state.modal.title_tag_line}</p>
+                                <p style={{ textAlign: "center"}}>{this.state.modal.title_tag_line}</p>
                             </div>
                         </Grid.Column>
                         <Grid.Column width={10}>
-                        {matchesAreSet ? (
-                            this.state.modal.matches.map(e =>
-                                <div>
-                                    <Image.Group size="tiny" style={{background: "blue"}}>
-                                        <Image src={e.fighterOneImage} size='tiny' />
-                                        <Image src={e.fighterTwoImage} size='tiny' />
-                                    </Image.Group>
-                                </div>
-                            )
-                        ) : (
-                                <Dimmer active inverted style={{ marginTop: "20px" }}>
-                                    <Loader>Loading</Loader>
-                                </Dimmer>
-                            )}
-                            </Grid.Column>
+                            {matchesAreSet ? (
+                                <FrontPageEventMatchups matchups={this.state.modal.matches} />
+                            ) :
+                                (
+                                    <Dimmer active inverted style={{ marginTop: "20px" }}>
+                                        <Loader>Loading</Loader>
+                                    </Dimmer>
+                                )}
+                        </Grid.Column>
                     </Grid>
                 </div>
             </div >
@@ -186,6 +181,6 @@ const mapStateToProps = (state) => {
 export default connect(
     mapStateToProps,
     { initializeEvents }
-)(Events)
+)(FrontPageEvents)
 
 

@@ -11,7 +11,6 @@ import { initializeHeadlines } from './reducers/headlineReducer'
 import { initializeEvents } from './reducers/eventReducer'
 import headlineThumbnail from './components/HeadlineThumbnail'
 import Headlines from './components/Headlines'
-import Events from './components/Events'
 import scraper from './utils/scraper'
 
 class App extends React.Component {
@@ -52,7 +51,6 @@ class App extends React.Component {
             <Link style={linkStyle} to="/events">Events</Link>
           </div>
           <Route exact path="/" render={() => <Headlines />} />
-          <Route path="/events" render={() => <Events />} />
         </div>
       </Router >
   </Container>
