@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid, Container, Image } from 'semantic-ui-react'
-import HeadlineThumbnail from '../components/HeadlineThumbnail'
-import HeadlineNewsStory from '../components/HeadlineNewsStory'
-import { initializeHeadlines } from '../reducers/headlineReducer'
-import FrontPageEvents from '../components/FrontPageEvents'
+import HeadlineThumbnail from './HeadlineThumbnail'
+import HeadlineNewsStory from './HeadlineNewsStory'
+import { initializeHeadlines } from '../../reducers/headlineReducer'
+import FrontPageEvents from './FrontPageEvents'
 
 class Headlines extends React.Component {
     constructor(props) {

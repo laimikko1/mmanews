@@ -5,11 +5,13 @@ import thunk from 'redux-thunk'
 import newsReducer from './reducers/newsReducer'
 import headlineReducer from './reducers/headlineReducer'
 import eventReducer from './reducers/eventReducer'
+import fighterReducer from './reducers/fighterReducer'
 
 const reducer = combineReducers({
     headlines: headlineReducer,
     news: newsReducer,
-    events: eventReducer
+    events: eventReducer,
+    fighters: fighterReducer
 })
 
 const store = createStore(

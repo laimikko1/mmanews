@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { initializeEvents } from '../reducers/eventReducer'
+import { initializeEvents } from '../../reducers/eventReducer'
 import { List } from 'semantic-ui-react'
-import '../styles.css'
+import '../../../src/styles.css'
 import { Dimmer, Loader, Segment, Grid, Image } from 'semantic-ui-react'
-import scraper from '../utils/scraper'
-import FrontPageEventMatchups from '../components/FrontPageEventMatchups'
+import scraper from '../../utils/scraper'
+import FrontPageEventMatchups from './FrontPageEventMatchups'
 
 
 class FrontPageEvents extends React.Component {

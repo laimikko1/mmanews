@@ -1,4 +1,4 @@
-| Päivämäärä | Sisältö | Tunnit | 
+x| Päivämäärä | Sisältö | Tunnit | 
 |------------|:---------|--------:|
 | 31.3 | Selvittelin rajapinnan käyttöä ja lueskelin kurssimateriaalia, tein rungon projektille. Semantic käyttöön myös, eka hello world sivu | 0.5 |
 | 1.4 | Axios käyttöön, ekat rajapintapyynnöt ja uutisia haltuun. Reduxia alusteltu | 1 |
@@ -10,4 +10,3 @@
 | 9.5 | Crawleri tehty, jolla saa ottelukortin matsit | 4h |
 | 19.5 | Router tehty ja alustava valikko, muuttunee vielä | 2h |
 | 23.5 | Lisätty kuvat ottelukortista etusivulle ja laitettu devtools projektiin | 3h | 
-| | Yhteensä | 26.5 |

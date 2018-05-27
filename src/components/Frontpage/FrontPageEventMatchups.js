@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Image, List } from 'semantic-ui-react'
-import FrontPageMatchupRow from '../components/FrontPageMatchupRow'
+import FrontPageMatchupRow from './FrontPageMatchupRow'
 
 const FrontPageEventMatchups = ({  matchups } ) => {
     const getFirstRow = () => {

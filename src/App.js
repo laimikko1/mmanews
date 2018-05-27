@@ -9,8 +9,10 @@ import newsService from './services/news'
 import { initializeNews } from './reducers/newsReducer'
 import { initializeHeadlines } from './reducers/headlineReducer'
 import { initializeEvents } from './reducers/eventReducer'
-import headlineThumbnail from './components/HeadlineThumbnail'
-import Headlines from './components/Headlines'
+import { initializeFighters } from './reducers/fighterReducer'
+import headlineThumbnail from './components/Frontpage/HeadlineThumbnail'
+import Headlines from './components/Frontpage/Headlines'
+import FightersFrontPage from './components/Fighters/FightersFrontPage'
 import scraper from './utils/scraper'
 
 class App extends React.Component {
@@ -42,18 +44,19 @@ class App extends React.Component {
     }
     return (
       <Container>
-      <Router>
-        <div>
-        <p style={{float:"left", marginTop: "20px", marginLeft: "10px", color: "red", fontWeight: "bold"}}>MMANEWS</p>
-          <div style={menuStyle}>
-            <Link style={linkStyle} to="/">Home</Link> &nbsp;
+        <Router>
+          <div>
+            <p style={{ float: "left", marginTop: "20px", marginLeft: "10px", color: "red", fontWeight: "bold" }}>MMANEWS</p>
+            <div style={menuStyle}>
+              <Link style={linkStyle} to="/">Home</Link> &nbsp;
             <Link style={linkStyle} to="/fighters">Fighters</Link> &nbsp;
             <Link style={linkStyle} to="/events">Events</Link>
+            </div>
+            <Route exact path="/" render={() => <Headlines />} />
+            <Route path="/fighters" render={() => <FightersFrontPage />} />
           </div>
-          <Route exact path="/" render={() => <Headlines />} />
-        </div>
-      </Router >
-  </Container>
+        </Router >
+      </Container>
 
     )
   }
@@ -61,5 +64,8 @@ class App extends React.Component {
 
 export default connect(
   null,
-  { initializeNews }
+  {
+    initializeNews,
+    initializeFighters
+  }
 )(App);
