@@ -10,4 +10,5 @@
 | 9.5 | Crawleri tehty, jolla saa ottelukortin matsit | 4h |
 | 19.5 | Router tehty ja alustava valikko, muuttunee vielä | 2h |
 | 23.5 | Lisätty kuvat ottelukortista etusivulle ja laitettu devtools projektiin | 3h | 
-| | Yhteensä | 26.5 |
+| 27.5 | Fighters sivua tehty, uusi reducer, service, komponentteja jne | 5h |
+Yhteensä | 31.5 |
