@@ -11,4 +11,5 @@
 | 19.5 | Router tehty ja alustava valikko, muuttunee vielä | 2h |
 | 23.5 | Lisätty kuvat ottelukortista etusivulle ja laitettu devtools projektiin | 3h | 
 | 27.5 | Fighters sivua tehty, uusi reducer, service, komponentteja jne | 5h |
-Yhteensä | 31.5 |
+| 29.5 | Sovellus laitettu herokuun ja säädetty että Heroku ja UFC API juttevat keskenään | 1h |
+Yhteensä | 32.5 |
