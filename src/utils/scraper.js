@@ -5,7 +5,7 @@ const getMatchups = async (eventId) => {
     let eventFights = []
 
     try {
-        const baseUrl = 'http://ufc-data-api.ufc.com/api/v1/us/events'
+        const baseUrl = 'https://cors-anywhere.herokuapp.com/http://ufc-data-api.ufc.com/api/v1/us/events'
         const response = await axios.get(`${baseUrl}/${eventId}`);
         const $ = cheerio.load(response.data)
 

@@ -3,25 +3,48 @@ import { connect } from 'react-redux'
 import { Image, List } from 'semantic-ui-react'
 import FrontPageMatchupRow from './FrontPageMatchupRow'
 
-const FrontPageEventMatchups = ({  matchups } ) => {
+const FrontPageEventMatchups = ({ matchups } ) => {
     const getFirstRow = () => {
-        return matchups.slice(0, 4);
+        try {
+            return matchups.slice(0, 4);
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const getSecondRow = () => {
-        return matchups.slice(4, 8);
+        try {
+            return matchups.slice(4, 8);
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const getThirdRow = () => {
-        return matchups.slice(8);
+        try {
+            return matchups.slice(8);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    if (matchups) {
+        return (
+            <div>
+                <FrontPageMatchupRow matchups={getFirstRow()} />
+                <FrontPageMatchupRow matchups={getSecondRow()} />
+                <FrontPageMatchupRow matchups={getThirdRow()} />
+            </div>
+        )
     }
     return (
         <div>
-            <FrontPageMatchupRow matchups={getFirstRow()} />
-            <FrontPageMatchupRow matchups={getSecondRow()} />
-            <FrontPageMatchupRow matchups={getThirdRow()} />
+            No matchups found!
         </div>
     )
+
+
 }
 
 

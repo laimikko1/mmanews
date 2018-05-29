@@ -2,9 +2,9 @@ import axios from 'axios'
 
 
 const axiosInstance = axios.create({
-    baseURL: 'http://ufc-data-api.ufc.com/api/v1/us/news'
+    baseURL: 'https://cors-anywhere.herokuapp.com/http://ufc-data-api.ufc.com/api/v1/us/news'
 })
-const baseUrl = 'http://ufc-data-api.ufc.com/api/v1/us/news'
+const baseUrl = 'https://cors-anywhere.herokuapp.com/http://ufc-data-api.ufc.com/api/v1/us/news'
 
 
 const getAll = async () => {
