@@ -12,4 +12,5 @@
 | 23.5 | Lisätty kuvat ottelukortista etusivulle ja laitettu devtools projektiin | 3h | 
 | 27.5 | Fighters sivua tehty, uusi reducer, service, komponentteja jne | 5h |
 | 29.5 | Sovellus laitettu herokuun ja säädetty että Heroku ja UFC API juttevat keskenään | 1h |
-Yhteensä | 32.5 |
+| 31.5 | Säätöä asynkronisuuden kanssa REEE. No sain sentää lopulta renderöitymään sen mitä haluan. Oppia ikä kaikki. | 2h |
+Yhteensä | 34.5 |
