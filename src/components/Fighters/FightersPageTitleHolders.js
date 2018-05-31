@@ -7,42 +7,33 @@ class FightersPageTitleHolders extends React.Component {
 
     async componentWillMount() {
         await this.props.initializeTitleHolders()
-        console.log(this.getTitleHolders('Men'))
-        console.log(this.getTitleHolders('Women'))
-    }
-
-    getMen = (gender) => {
-        let temp = []
-        this.props.fighters.forEach(f => {
-            if (!f.weight_class.includes("Women")) {
-                temp.push(f)
-            }
-        }
-        )
-        return temp
-    }
-
-    getWomen = (gender) => {
-        let temp = []
-        this.props.fighters.forEach(f => {
-            if (f.weight_class.includes("Women")) {
-                temp.push(f)
-            }
-        }
-        )
-        // Let's fix the ordering, the api, for some reason, gives Cyborg first and Nunes last
-        let x = {}
-        x = temp[0]
-        temp[0] = temp[2]
-        temp[2] = temp[3]
-        temp[3] = x
-
-        return temp
+        console.log(this.props.fighters)
     }
 
     render() {
+        const mTitleHolders = this.props.fighters.filter(f => !f.weight_class.includes("Women"))
+        let wTitleHolders = this.props.fighters.filter(f => f.weight_class.includes("Women"))
+ 
         return (
-            <h1> TITLE HOLDERS </h1 >
+            <div>
+                <h1 style={{ textAlign: "center" }}> TITLE HOLDERS </h1 >
+                <Grid columns={3}>
+                    <Grid.Row>
+                        {mTitleHolders.map(m =>
+                            <Grid.Column>
+                                <p>{m.first_name}</p>
+                            </Grid.Column>
+                        )}
+                    </Grid.Row>
+                    <Grid.Row>
+                        {wTitleHolders.map(m =>
+                            <Grid.Column>
+                                <p>{m.first_name}</p>
+                            </Grid.Column>
+                        )}
+                    </Grid.Row>
+                </Grid>
+            </div >
         )
     }
 
